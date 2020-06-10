@@ -6,7 +6,7 @@ fmt:
 	@gofmt -s -w $(SOURCE_FILES)
 
 fmtcheck:
-	@test -z $$(gofmt -s -l $(SOURCE_FILES) | tee /dev/tty)
+	@test -z $$(gofmt -s -l $(SOURCE_FILES))
 
 test:
 	go test -mod=vendor ./...
