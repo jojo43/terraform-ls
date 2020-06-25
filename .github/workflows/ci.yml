@@ -51,8 +51,17 @@ jobs:
         with: # Ideally this should be picked up from .go-version rather than hard-coded
           go-version: 1.14.1
       -
+        name: Set env
+        run: |
+          echo "::set-env name=GOPATH::$(go env GOPATH)"
+          echo "::add-path::$(go env GOPATH)/bin"
+      -
         name: Go mod verify
         run: go mod verify
+      -
+        name: Download mod
+        run: |
+          go mod download
       -
         name: Go fmt
         run: |
