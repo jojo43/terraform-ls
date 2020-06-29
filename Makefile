@@ -1,12 +1,9 @@
 default: test
 
-fmt-deps:
-	go install github.com/mh-cbon/go-fmt-fail
-
 fmt:
-	go-fmt-fail ./...
+	go run -mod=vendor github.com/mh-cbon/go-fmt-fail -mod=vendor ./...
 
 test:
 	go test -mod=vendor -v -cover ./...
 
-.PHONY: fmt-deps fmt test
+.PHONY: fmt test
