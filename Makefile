@@ -1,9 +1,11 @@
+GOFLAGS = -mod=vendor
+
 default: test
 
 fmt:
-	go run -mod=vendor github.com/mh-cbon/go-fmt-fail -mod=vendor ./...
+	GOFLAGS=$(GOFLAGS) go run github.com/mh-cbon/go-fmt-fail ./...
 
 test:
-	go test -mod=vendor -v -cover ./...
+	GOFLAGS=$(GOFLAGS) go test -v -cover ./...
 
 .PHONY: fmt test
