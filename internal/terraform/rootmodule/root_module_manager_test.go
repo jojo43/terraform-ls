@@ -499,11 +499,11 @@ func testRootModuleManager(t *testing.T) *rootModuleManager {
 			TerraformExecQueue: &exec.MockQueue{
 				Q: []*exec.MockItem{
 					{
-						Args:   []string{"version"},
+						Args:   []string{"version", "-no-color"},
 						Stdout: "Terraform v0.12.0\n",
 					},
 					{
-						Args:   []string{"providers", "schema", "-json"},
+						Args:   []string{"providers", "-no-color", "schema", "-json"},
 						Stdout: "{\"format_version\":\"0.1\"}\n",
 					},
 				},

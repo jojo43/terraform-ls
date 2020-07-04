@@ -39,7 +39,7 @@ func TestInitialize_withIncompatibleTerraformVersion(t *testing.T) {
 	ls := langserver.NewLangServerMock(t, NewMockSession(map[string]*rootmodule.RootModuleMock{
 		tmpDir.Dir(): {
 			TerraformExecQueue: &exec.MockCall{
-				Args:   []string{"version"},
+				Args:   []string{"version", "-no-color"},
 				Stdout: "Terraform v0.11.0\n",
 			},
 		},

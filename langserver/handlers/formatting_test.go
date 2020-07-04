@@ -32,7 +32,7 @@ func TestLangServer_formatting_basic(t *testing.T) {
 	InitDir(t, tmpDir.Dir())
 	queue := validTfMockCalls()
 	queue.Q = append(queue.Q, &exec.MockItem{
-		Args:   []string{"fmt", "-"},
+		Args:   []string{"fmt", "-no-color", "-"},
 		Stdout: "provider \"test\" {\n\n}\n",
 	})
 	ls := langserver.NewLangServerMock(t, NewMockSession(map[string]*rootmodule.RootModuleMock{

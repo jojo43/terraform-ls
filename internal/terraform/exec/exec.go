@@ -101,6 +101,7 @@ func (e *Executor) cmd(args ...string) (*command, error) {
 	var outBuf bytes.Buffer
 	var errBuf bytes.Buffer
 
+	args = append(args[:1], append([]string{"-no-color"}, args[1:]...)...)
 	cmd := e.cmdCtxFunc(ctx, e.execPath, args...)
 	cmd.Args = append([]string{"terraform"}, args...)
 	cmd.Dir = e.workDir
